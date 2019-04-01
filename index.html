@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- BODY HEAD JUMBOTRON -->
+    <div class="jumbotron jumbotron-fluid text-center text-light bg-dark m-5">
+      <div class="container">
+        <h1 class="display-4">Train Time Schedule</h1>
+        <p class="lead">"The only way of catching a train I have ever discovered is to miss the train before." ― G.K. Chesterton</p>
+      </div>
+    </div>
+
+    <!-- TABLE FOR SCHEDULE -->
+    <div class="card bg-dark text-center text-light m-5">
+      <div class="card-header">
+        Current Train Schedule
+      </div>
+      <div class="card-body table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+        <table class="table table-striped table-hover table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Train Name</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Frequency (min)</th>
+              <th scope="col">Next Arrival</th>
+              <th scope="col">Minutes Away</th>
+            </tr>
+          </thead>
+          <tbody id="train-table">
+            <!-- CODES HERE ARE DYNAMICALLY GENERATED FROM JAVASCRIPT -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FORM FOR ADDING SCHEDULE -->
+    <div class="card bg-dark text-center text-light m-5">
+      <div class="card-header">
+        Add Train
+      </div>
+      <div class="card-body card-dark">
+        <form>
+          <div class="form-group">
+            <label for="train-name">Train Name</label>
+            <input type="text" class="form-control" id="train-name" placeholder="New York Express">
+          </div>
+          <div class="form-group">
+            <label for="employee-position">Destination</label>
+            <input type="text" class="form-control" id="destination" placeholder="New York">
+          </div>
+          <div class="form-group">
+            <label for="employee-start-date">First Train Time</label>
+            <input type="text" class="form-control" id="first-train-time" placeholder="05:00">
+          </div>
+          <div class="form-group">
+            <label for="employee-monthly-rate">Frequency (min)</label>
+            <input type="text" class="form-control" id="frequency-min" placeholder="25">
+          </div>
+          <button type="submit" id="add-train" class="btn btn-danger btn-block">Submit</button>
+        </form>
+      </div>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script src="assets/javascript/trainSchedule.js"></script>
+</body>
+</html>
