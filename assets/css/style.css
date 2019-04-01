@@ -1,0 +1,8 @@
+ body {
+  background-color: #777;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    font-size: 5px;
+  }
+}
