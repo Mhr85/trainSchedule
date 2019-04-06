@@ -14,43 +14,35 @@ $("#add-train").on("click", function(){
   event.preventDefault();
   var tableRows = $("<tr>").addClass("train-schedule-rows");
   var trainName = $("#train-name").val();
-  console.log(trainName);
+
   tableRows.append($("<td>").text(trainName));
 
   var trainDestination = $("#destination").val();
-  console.log(trainDestination);
   tableRows.append($("<td>").text(trainDestination));
 
   var firstTrainTime = $("#first-train-time").val();
   var trainFrequency = $("#frequency-min").val();
   tableRows.append($("<td>").text(trainFrequency));
-  console.log(firstTrainTime);
-  console.log(trainFrequency);
 
   var firstTrainTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
-  console.log(firstTrainTimeConverted);
 
   var currentTime = moment();
-  console.log(moment(currentTime).format("hh:mm"));
 
   var diffTime = moment().diff(moment(firstTrainTimeConverted), "minutes");
-  console.log(diffTime);
 
   var tRemainder = diffTime % trainFrequency;
-  console.log(tRemainder);
-
-  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-  console.log(moment(nextTrain).format("hh:mm"));
-  tableRows.append($("<td>").text(moment(nextTrain).format("LT")));
 
   var tMinutesTillTrain = trainFrequency - tRemainder;
-  console.log(tMinutesTillTrain);
+  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+  tableRows.append($("<td>").text(moment(nextTrain).format("LT")));
+
+
   tableRows.append($("<td>").text(tMinutesTillTrain));
+  tableRows.append($("<button>").addClass("btn btn-danger delete-button"));
 
 
 
   $("#train-table").append(tableRows);
-  console.log($("#train-table").html());
 
   database.ref().set({
     trainSchedule: $("#train-table").html()
